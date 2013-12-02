@@ -1,0 +1,22 @@
+@import "compass/reset";
+@import "compass/css3";
+
+@import "compass/utilities/sprites";
+@import "sprites/*.png";
+
+@include all-sprites-sprites;
+
+/* Main */
+
+$default-transition-delay    : false;
+$webkit-font-smoothing       : true;
+
+/* Fonts */
+
+//@include font-face("Century Gothic", font-files("gothic-webfont.ttf", "gothic-webfont.woff", "gothic-webfont.svg"), "gothic-webfont.eot");
+
+
+/* Colors */
+
+$body-color: #fff;
+
