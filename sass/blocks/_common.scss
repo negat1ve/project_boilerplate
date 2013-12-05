@@ -19,13 +19,18 @@ body {
 }
 
 input,textarea,button {
-	border: none;
+    border: none;
 }
 
 input:focus,textarea:focus,button:focus {
-	outline: none;
+    outline: none;
 }
 
 ul li{
-	list-style: none;
+    list-style: none;
+}
+
+input, textarea {
+    @include experimental(appearance, none);
+    @include border-radius(0);
 }
