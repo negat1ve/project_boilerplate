@@ -5,41 +5,44 @@
 
     @if file_exists("sprites/#{$sprite}.svg") {
         .no-svg & {
-            @include sprites-sprite($sprite);
+            background-image: url('../images/sprites.png');
+            background-position: sprite-position( $sprites-sprites, $sprite );
             background-size: auto auto;
             @if $hover-sprite != null {
-            	&:hover {
-            		@include sprites-sprite($hover-sprite);
-    	        	background-size: auto auto;
-            	}
+                &:hover {
+                    background-position: sprite-position( $sprites-sprites, $hover-sprite );
+                    background-size: auto auto;
+                }
             }
         }
         background-image: inline-image("sprites/" + $sprite + ".svg");
         background-size: sprites-sprite-width($sprite) sprites-sprite-height($sprite);
         @if $hover-sprite != null {
-        	&:hover {
-    	    	background-image: inline-image("sprites/" + $hover-sprite + ".svg");
-    	    	background-size: sprites-sprite-width($hover-sprite) sprites-sprite-height($hover-sprite);
-    	    }
+            &:hover {
+                background-image: inline-image("sprites/" + $hover-sprite + ".svg");
+                background-size: sprites-sprite-width($hover-sprite) sprites-sprite-height($hover-sprite);
+            }
         }
     } @else if file_exists("sprites/#{$sprite}_2x.png") {
         @include sprites-sprite($sprite);
 
         @media (min--moz-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx) {
-            @include sprites-sprite($sprite + "_2x");
+            background-image: url('../images/sprites.png');
+            background-position: sprite-position( $sprites-sprites, $sprite  + "_2x");
             background-size: sprites-sprite-width($sprite) sprites-sprite-height($sprite);
             @if $hover-sprite != null {
-            	&:hover {
-    	            @include sprites-sprite($hover-sprite + "_2x");
-    	            background-size: sprites-sprite-width($hover-sprite) sprites-sprite-height($hover-sprite);
-    	        }
+                &:hover {
+                    background-position: sprite-position( $sprites-sprites, $hover-sprite + "_2x");
+                    background-size: sprites-sprite-width($hover-sprite) sprites-sprite-height($hover-sprite);
+                }
             }
         }
         
     } @else {
-        @include sprites-sprite($sprite);
+        background-image: url('../images/sprites.png');
+        background-position: sprite-position( $sprites-sprites, $sprite );
         @if $hover-sprite != null {
-        	@include sprites-sprite($hover-sprite);
+            background-position: sprite-position( $sprites-sprites, $hover-sprite );
         }
     }
 }

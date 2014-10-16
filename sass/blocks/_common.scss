@@ -34,3 +34,7 @@ input, textarea {
     @include experimental(appearance, none);
     @include border-radius(0);
 }
+
+a {
+    cursor: pointer;
+}
