@@ -2,7 +2,7 @@
     "use strict";
 
     var defaultCDN = 'google', // yandex || google || local
-        baseDefault = '/js/',
+        baseDefault = './js/',
 
         libVersion = {
             jQuery: (window.isMsIe !== 'undefined' && window.isMsIe < 9) ? '1.10.2' : '2.0.3',
